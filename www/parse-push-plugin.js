@@ -1,6 +1,6 @@
 var serviceName = 'ParsePushPlugin';
 
-var _ = window._ ? window._ : Parse._;
+//var _ = window._ ? window._ : Parse._;
 
 var ParsePushPlugin = {
 	 _eventKey: null,
@@ -52,4 +52,5 @@ var ParsePushPlugin = {
 //
 // give ParsePushPlugin event handling capability so we can use it to trigger
 // push notification onReceive events
-module.exports = _.extend(ParsePushPlugin, Parse.Events);
+//module.exports = _.extend(ParsePushPlugin, Parse.Events);
+module.exports = ParsePushPlugin;
