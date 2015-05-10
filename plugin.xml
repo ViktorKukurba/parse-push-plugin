@@ -33,8 +33,15 @@
               <category android:name="$PACKAGE_NAME" />
             </intent-filter>
           </receiver>
+            <receiver android:name="com.parse.ParseBroadcastReceiver">
+                <intent-filter>
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+                    <action android:name="android.intent.action.USER_PRESENT" />
+                </intent-filter>
+            </receiver>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
           <uses-permission android:name="android.permission.INTERNET" />
           <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
           <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -45,8 +52,8 @@
           <uses-permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" />
         </config-file>
 
-        <source-file src="src/android/parse/Parse-1.8.1.jar" target-dir="libs" framework="true" />
-        <source-file src="src/android/parse/bolts-android-1.1.4.jar" target-dir="libs" framework="true" />
+        <source-file src="src/android/parse/Parse-1.9.1.jar" target-dir="libs" framework="true" />
+        <source-file src="src/android/parse/bolts-android-1.2.0.jar" target-dir="libs" framework="true" />
         <source-file src="src/android/ParsePushPlugin.java" target-dir="src/com/phonegap/plugins" />
         <source-file src="src/android/ParsePushPluginReceiver.java" target-dir="src/com/phonegap/plugins" />      
      </platform>
