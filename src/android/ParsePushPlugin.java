@@ -17,7 +17,7 @@ import com.parse.ParsePush;
 import android.util.Log;
 
 public class ParsePushPlugin extends CordovaPlugin {
-    public static final String ACTION_REGISTER = "register";
+    public static final String ACTION_REGISTER = "initialize";
     public static final String ACTION_GET_INSTALLATION_ID = "getInstallationId";
     public static final String ACTION_GET_INSTALLATION_OBJECT_ID = "getInstallationObjectId";
     public static final String ACTION_GET_SUBSCRIPTIONS = "getSubscriptions";

@@ -25,7 +25,7 @@ var ParsePushPlugin = {
    	 if(regParams.eventKey) this._eventKey = regParams.eventKey;
    	 
    	 var params = _.extend(regParams, {ecb: serviceName + '._onReceive'});
-       cordova.exec(successCb, errorCb, serviceName, 'register', [params]);
+       cordova.exec(successCb, errorCb, serviceName, 'initialize', [params]);
     },
 
     getInstallationId: function(successCb, errorCb) {
