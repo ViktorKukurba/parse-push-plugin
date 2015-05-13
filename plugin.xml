@@ -69,13 +69,13 @@
         <header-file src="src/ios/CDVParsePlugin.h" />
         <source-file src="src/ios/CDVParsePlugin.m" />
 
-        <!--<framework src="AssetsLibrary.framework" />-->
-        <!--<framework src="MobileCoreServices.framework" />-->
+        <framework src="AssetsLibrary.framework" />
         <framework src="AudioToolbox.framework" />
         <framework src="CFNetwork.framework" />
         <framework src="CoreGraphics.framework" />
         <framework src="CoreLocation.framework" />
-        <framework src="libz.1.1.3.dylib" />
+        <framework src="libz.dylib" />
+        <framework src="libsqlite3.dylib" />
         <framework src="MobileCoreServices.framework" />
         <framework src="QuartzCore.framework" />
         <framework src="Security.framework" />
@@ -85,3 +85,4 @@
         <framework src="src/ios/Frameworks/Bolts.framework" custom="true" />
     </platform>
 </plugin>
+
