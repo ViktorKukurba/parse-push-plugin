@@ -69,6 +69,7 @@
         <header-file src="src/ios/CDVParsePlugin.h" />
         <source-file src="src/ios/CDVParsePlugin.m" />
 
+        <framework src="Accounts.framework" />
         <framework src="AssetsLibrary.framework" />
         <framework src="AudioToolbox.framework" />
         <framework src="CFNetwork.framework" />
