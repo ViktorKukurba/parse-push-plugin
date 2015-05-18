@@ -11,6 +11,3 @@
 - (void)unsubscribe: (CDVInvokedUrlCommand *)command;
 
 @end
-
-@interface AppDelegate (CDVParsePlugin)
-@end
