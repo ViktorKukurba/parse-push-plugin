@@ -53,7 +53,7 @@
         </config-file>
 
         <source-file src="src/android/parse/Parse-1.9.1.jar" target-dir="libs" framework="true" />
-        <source-file src="src/android/parse/bolts-android-1.2.0.jar" target-dir="libs" framework="true" />
+        <!--<source-file src="src/android/parse/bolts-android-1.2.0.jar" target-dir="libs" framework="true" />-->
         <source-file src="src/android/ParsePushPlugin.java" target-dir="src/com/phonegap/plugins" />
         <source-file src="src/android/ParsePushPluginReceiver.java" target-dir="src/com/phonegap/plugins" />      
         <source-file src="src/android/ParseApp.java" target-dir="src/com/phonegap/plugins" />
@@ -83,7 +83,7 @@
         <framework src="StoreKit.framework" />
         <framework src="SystemConfiguration.framework" />
         <framework src="src/ios/Frameworks/Parse.framework" custom="true" />
-        <framework src="src/ios/Frameworks/Bolts.framework" custom="true" />
+        <!--<framework src="src/ios/Frameworks/Bolts.framework" custom="true" />-->
     </platform>
 </plugin>
 
