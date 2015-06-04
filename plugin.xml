@@ -71,7 +71,7 @@
 
         <framework src="Accounts.framework" />
         <framework src="AssetsLibrary.framework" />
-        <framework src="AudioToolbox.framework" />
+        <framework src="AudioToolbox.framework" weak="true" />
         <framework src="CFNetwork.framework" />
         <framework src="CoreGraphics.framework" />
         <framework src="CoreLocation.framework" />
