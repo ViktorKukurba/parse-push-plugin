@@ -146,30 +146,37 @@ Compatibility
 -------------
 Phonegap/Cordova > 3.0.0
 
-INITIALIZATION
+Initialization
+--------------
 
 Adding Code for a Push Enabled iOS Application:
+0. Import Parse and fix , set after last "import" in
+```objective-c
+#import <Parse/Parse.h>
+
+NSString *const BFTaskMultipleExceptionsException = @"BFMultipleExceptionsException";
+```
 
 1. To register the current device for push, call the method [application registerForRemoteNotifications] in the app delegate's -application:didFinishLaunchingWithOptions: method.
-
+```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   ...
 
   [Parse setApplicationId:@"APP_ID" clientKey:@"CLIENT_KEY"];
-
   UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                   UIUserNotificationTypeBadge |
                                                   UIUserNotificationTypeSound);
-  UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                           categories:nil];
+  UIUserNotificationSettings *settings =
+  [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
   [application registerUserNotificationSettings:settings];
   [application registerForRemoteNotifications];
   ...
 }
+```
 
 2. If the registration is successful, the callback method -application:didRegisterForRemoteNotificationsWithDeviceToken: in the application delegate will be executed.
  We will need to implement this method and use it to inform Parse about this new device.
-
+```objective-c
  - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
    // Store the deviceToken in the current installation and save it to Parse.
    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
@@ -177,15 +184,16 @@ Adding Code for a Push Enabled iOS Application:
    currentInstallation.channels = @[ @"global" ];
    [currentInstallation saveInBackground];
  }
-
+```
 3. When a push notification is received while the application is not in the foreground, it is displayed in the iOS Notification Center.
  However, if the notification is received while the app is active, it is up to the app to handle it.
   To do so, we can implement the [application:didReceiveRemoteNotification] method in the app delegate. In our case, we will simply ask Parse to handle it for us.
  Parse will create a modal alert and display the push notification's content.
-
+```objective-c
  - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
    [PFPush handlePush:userInfo];
  }
+```
 
 For more information go:
 https://parse.com/tutorials/ios-push-notifications
