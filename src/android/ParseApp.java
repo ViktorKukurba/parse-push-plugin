@@ -10,6 +10,7 @@ import android.util.Log;
 import com.parse.ParseUser;
 import com.parse.ParseException;
 import com.parse.SignUpCallback;
+import android.provider.Settings.Secure;
 
 public class ParseApp extends Application {
 
@@ -17,7 +18,10 @@ public class ParseApp extends Application {
     public void onCreate() {
         super.onCreate();
         Parse.initialize(this, "PARSE_APP_ID", "PARSE_CLIENT_KEY");
-        ParseInstallation.getCurrentInstallation().saveInBackground();
+        ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+        String androidId = Secure.getString(getApplicationContext().getContentResolver(), Secure.ANDROID_ID);
+        installation.put("androidId", androidId);
+        installation.saveInBackground();
 
         ParsePush.subscribeInBackground("", new SaveCallback() {
           @Override
